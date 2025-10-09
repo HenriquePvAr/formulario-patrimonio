@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patrimônio</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f5f5f5; }
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: 50px auto;
+    }
+    h1 { text-align: center; color: #ff6b00; margin-bottom: 20px; }
+    .btn-dark {
+      background-color: #ff6b00;
+      border-color: #ff6b00;
+    }
+    .btn-dark:hover {
+      background-color: #e65c00;
+      border-color: #e65c00;
+    }
+    .invalid-feedback { display: none; }
+    input.is-invalid + .invalid-feedback,
+    select.is-invalid + .invalid-feedback,
+    textarea.is-invalid + .invalid-feedback { display: block; }
+    input.is-valid, select.is-valid { border-color: #28a745; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Informações de Patrimônio</h1>
+    <p class="lead text-center">Preencha todos os campos obrigatórios</p>
+
+    <form id="patrimonioForm" novalidate>
+
+      <div class="mb-3">
+        <label for="fullname" class="form-label">Usuário</label>
+        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nome Completo do Usuário" required />
+        <div class="invalid-feedback">Por favor, insira o nome completo do usuário.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="pc" class="form-label">Patrimônio Computador</label>
+        <input type="text" class="form-control patrimonio" id="pc" name="pc" placeholder="0000000" pattern="\d{7}" required />
+        <div class="invalid-feedback">Por favor, insira o patrimônio do computador (7 dígitos).</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="monitor" class="form-label">Patrimônio Monitor</label>
+        <input type="text" class="form-control patrimonio" id="monitor" name="monitor" placeholder="0000000" pattern="\d{7}" required />
+        <div class="invalid-feedback">Por favor, insira o patrimônio do monitor (7 dígitos).</div>
+      </div>
+
+      <!-- Campos opcionais para 2º e 3º monitor -->
+      <div class="mb-3">
+        <label for="monitor2" class="form-label">Patrimônio 2º Monitor (Opcional)</label>
+        <input type="text" class="form-control patrimonio" id="monitor2" name="monitor2" placeholder="0000000" pattern="\d{7}" />
+        <div class="invalid-feedback">Digite apenas números (7 dígitos).</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="monitor3" class="form-label">Patrimônio 3º Monitor (Opcional)</label>
+        <input type="text" class="form-control patrimonio" id="monitor3" name="monitor3" placeholder="0000000" pattern="\d{7}" />
+        <div class="invalid-feedback">Digite apenas números (7 dígitos).</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="mesa" class="form-label">Patrimônio Mesa</label>
+        <input type="text" class="form-control patrimonio" id="mesa" name="mesa" placeholder="0000000" pattern="\d{7}" required />
+        <div class="invalid-feedback">Por favor, insira o patrimônio da mesa (7 dígitos).</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Patrimônio Telefone</label>
+        <input type="text" class="form-control patrimonio" id="telefone" name="telefone" placeholder="0000000" pattern="\d{7}" required />
+        <div class="invalid-feedback">Por favor, insira o patrimônio do telefone (7 dígitos).</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="gaveteiro" class="form-label">Patrimônio Gaveteiro</label>
+        <input type="text" class="form-control patrimonio" id="gaveteiro" name="gaveteiro" placeholder="0000000" pattern="\d{7}" required />
+        <div class="invalid-feedback">Por favor, insira o patrimônio do gaveteiro (7 dígitos).</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="setor" class="form-label">Setor</label>
+        <select class="form-select" id="setor" name="setor" required>
+          <option value="" selected disabled>Selecione o setor</option>
+          <option value="Setec">Setec</option>
+          <option value="Seadm">Seadm</option>
+          <option value="Protocolo">Protocolo</option>
+          <option value="Meteorologia">Meteorologia</option>
+          <option value="Hidrologia">Hidrologia</option>
+          <option value="Seint">Seint</option>
+          <option value="Gabinete">Gabinete</option>
+          <option value="Nugep">Nugep</option>
+          <option value="Comunicacao Social">Comunicação Social</option>
+          <option value="Seguranca Organica">Segurança Orgânica</option>
+        </select>
+        <div class="invalid-feedback">Por favor, selecione o setor.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="additionalInfo" class="form-label">Informações Adicionais</label>
+        <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3" placeholder="Opcional"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-dark w-100">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.patrimonio').mask('0000000');
+
+      emailjs.init("lG42raC8x-SeVEpPC"); // Seu User ID
+
+      function validateField(field){
+        if(field.checkValidity()){
+          $(field).removeClass('is-invalid').addClass('is-valid');
+        } else {
+          $(field).removeClass('is-valid').addClass('is-invalid');
+        }
+      }
+
+      $('input, select').on('input change', function(){
+        validateField(this);
+      });
+
+      $('#patrimonioForm').on('submit', function(e){
+        e.preventDefault();
+        let form = this;
+        let valid = form.checkValidity();
+
+        if(!valid){
+          $(form).addClass('was-validated');
+          $('input, select').each(function(){ validateField(this); });
+          return;
+        }
+
+       
+        let templateParams = {
+          fullname: $('#fullname').val(),
+          pc: $('#pc').val(),
+          monitor: $('#monitor').val(),
+          monitor2: $('#monitor2').val(),   // opcional
+          monitor3: $('#monitor3').val(),   // opcional
+          mesa: $('#mesa').val(),
+          telefone: $('#telefone').val(),
+          gaveteiro: $('#gaveteiro').val(),
+          setor: $('#setor').val(),
+          additionalInfo: $('#additionalInfo').val()
+        };
+
+        emailjs.send("service_v06v738", "template_u9p4ygb", templateParams)
+          .then(function(response) {
+              alert('Formulário enviado com sucesso!');
+              form.reset();
+              $(form).removeClass('was-validated');
+              $('.patrimonio').mask('0000000');
+              $('input, select, textarea').removeClass('is-valid is-invalid');
+          }, function(error) {
+              alert('Erro ao enviar o formulário: ' + JSON.stringify(error));
+          });
+      });
+    });
+  </script>
+</body>
+</html>
