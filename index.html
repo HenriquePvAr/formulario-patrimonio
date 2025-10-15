@@ -12,155 +12,154 @@
 <body>
   <div class="form-container">
     <h3>Formulário de Patrimônio</h3>
+
     <form id="patrimonioForm" novalidate>
-  <div class="mb-3">
-    <label>Usuário</label>
-    <input id="Usuario" pattern="^[A-Za-zÀ-ÿ\s]+$" title="Apenas letras e espaços" class="form-control"/>
+      <div class="mb-3">
+        <label>Usuário</label>
+        <input id="Usuario" pattern="^[A-Za-zÀ-ÿ\s]+$" title="Apenas letras e espaços" class="form-control"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Patrimônio Computador</label>
+        <input id="pc" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" title="Até 7 dígitos" class="form-control patrimonio"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Lacre</label>
+        <input id="lacre" class="form-control"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Monitor 1</label>
+        <input id="monitor" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Monitor 2 (opcional)</label>
+        <input id="monitor2" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Monitor 3 (opcional)</label>
+        <input id="monitor3" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Mesa</label>
+        <input id="mesa" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Telefone</label>
+        <input id="telefone" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Gaveteiro</label>
+        <input id="gaveteiro" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
+      </div>
+
+      <div class="mb-3">
+        <label>Setor</label>
+        <select id="setor" class="form-select">
+          <option value="" disabled selected>Selecione</option>
+          <option>Almoxarifado</option>
+          <option>Anavilhanas</option>
+          <option>Brigadista</option>
+          <option>Comunicação Social</option>
+          <option>Diretoria</option>
+          <option>Gabinete</option>
+          <option>Hidrologia</option>
+          <option>Juami Japurá</option>
+          <option>Meteorologia</option>
+          <option>Nugep</option>
+          <option>Paic</option>
+          <option>Pico da Neblina</option>
+          <option>Protocolo</option>
+          <option>Recepção</option>
+          <option>Sala de Treinamento</option>
+          <option>Seadm</option>
+          <option>Seint</option>
+          <option>Setec</option>
+          <option>Segurança Orgânica</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label>Informações Adicionais</label>
+        <textarea id="additionalInfo" class="form-control"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label>Ação</label>
+        <select id="acao" class="form-select">
+          <option value="" disabled selected>Escolha</option>
+          <option value="planilha">Enviar para planilha</option>
+          <option value="email">Enviar por email</option>
+          <option value="planilha_email">Planilha por email</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary w-100" type="submit">Enviar</button>
+    </form>
+
+    <!-- Novo botão fora do formulário -->
+    <hr>
+    <button id="btnEnviarPlanilha" class="btn btn-secondary w-100 mt-2">📧 Enviar Planilha por E-mail</button>
   </div>
 
-  <div class="mb-3">
-    <label>Patrimônio Computador</label>
-    <input id="pc" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" title="Até 7 dígitos" class="form-control patrimonio"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Lacre</label>
-    <input id="lacre" class="form-control"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Monitor 1</label>
-    <input id="monitor" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Monitor 2 (opcional)</label>
-    <input id="monitor2" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Monitor 3 (opcional)</label>
-    <input id="monitor3" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Mesa</label>
-    <input id="mesa" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Telefone</label>
-    <input id="telefone" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Gaveteiro</label>
-    <input id="gaveteiro" maxlength="7" inputmode="numeric" pattern="^\d{1,7}$" class="form-control patrimonio"/>
-  </div>
-
-  <div class="mb-3">
-    <label>Setor</label>
-    <select id="setor" required class="form-select">
-      <option value="" disabled selected>Selecione</option>
-      <option>Almoxarifado</option>
-      <option>Anavilhanas</option>
-      <option>Brigadista</option>
-      <option>Comunicação Social</option>
-      <option>Diretoria</option>
-      <option>Gabinete</option>
-      <option>Hidrologia</option>
-      <option>Juami Japurá</option>
-      <option>Meteorologia</option>
-      <option>Nugep</option>
-      <option>Paic</option>
-      <option>Pico da Neblina</option>
-      <option>Protocolo</option>
-      <option>Recepção</option>
-      <option>Sala de Treinamento</option>
-      <option>Seadm</option>
-      <option>Seint</option>
-      <option>Setec</option>
-      <option>Segurança Orgânica</option>
-    </select>
-  </div>
-
-  <div class="mb-3">
-    <label>Informações Adicionais</label>
-    <textarea id="additionalInfo" class="form-control"></textarea>
-  </div>
-
-  <div class="mb-3">
-    <label>Ação</label>
-    <select id="acao" required class="form-select">
-      <option value="" disabled selected>Escolha</option>
-      <option value="planilha">Enviar para planilha</option>
-      <option value="email">Enviar por email</option>
-      <option value="planilha_email">Planilha por email</option>
-    </select>
-  </div>
-
-  <button class="btn btn-primary w-100" type="submit">Enviar</button>
-</form>
-
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <script>
-    $(function(){
-      // máscara que impede digitar mais de 7 dígitos (apenas números)
-      $('.patrimonio').on('input', function(){
-        this.value = this.value.replace(/\D/g,'').slice(0,7);
+    const url = 'https://script.google.com/macros/s/AKfycbzHpMU3k8hkmKEohqbKazoP5GdXUjCyPOMOEzUUUVl998DISIcYrkMU4_sbscW2yU2L/exec';
+
+    document.querySelectorAll('.patrimonio').forEach(el => {
+      el.addEventListener('input', () => {
+        el.value = el.value.replace(/\D/g,'').slice(0,7);
+      });
+    });
+
+    document.getElementById('patrimonioForm').addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const params = new URLSearchParams({
+        fullname: document.getElementById('Usuario').value,
+        pc: document.getElementById('pc').value,
+        lacre: document.getElementById('lacre').value,
+        monitor: document.getElementById('monitor').value,
+        monitor2: document.getElementById('monitor2').value,
+        monitor3: document.getElementById('monitor3').value,
+        mesa: document.getElementById('mesa').value,
+        telefone: document.getElementById('telefone').value,
+        gaveteiro: document.getElementById('gaveteiro').value,
+        setor: document.getElementById('setor').value,
+        additionalInfo: document.getElementById('additionalInfo').value,
+        dataEnvio: new Date().toLocaleString('pt-BR'),
+        acao: document.getElementById('acao').value
       });
 
-      $('#patrimonioForm').on('submit', function(e){
-        e.preventDefault();
-        const form = this;
-        if(!form.checkValidity()){
-          form.reportValidity();
-          return;
-        }
+      fetch(url + '?' + params.toString())
+        .then(resp => resp.json())
+        .then(json => {
+          if(json.status === 'ok'){
+            alert('✅ Enviado com sucesso!');
+            e.target.reset();
+          } else {
+            alert('⚠️ Erro: ' + (json.mensagem || 'não processado'));
+          }
+        })
+        .catch(err => alert('❌ Erro ao enviar: ' + err));
+    });
 
-        const acao = $('#acao').val();
-        const setor = $('#setor').val();
-
-        if(!acao || !setor){
-          alert('❌ Selecione Ação e Setor antes de enviar.');
-          return;
-        }
-
-        const params = new URLSearchParams({
-          fullname: $('#Usuario').val(),
-          pc: $('#pc').val(),
-          lacre: $('#lacre').val(),
-          monitor: $('#monitor').val(),
-          monitor2: $('#monitor2').val(),
-          monitor3: $('#monitor3').val(),
-          mesa: $('#mesa').val(),
-          telefone: $('#telefone').val(),
-          gaveteiro: $('#gaveteiro').val(),
-          setor: setor,
-          additionalInfo: $('#additionalInfo').val(),
-          dataEnvio: new Date().toLocaleString('pt-BR'),
-          acao: acao
-        });
-
-        const url = 'https://script.google.com/macros/s/AKfycbzASVE4mRRA4Kju3dS0VHX_2lIsIMKvsXQlXRVBpxbcsYhi35oL82kwyF3ZYFQaTfty/exec';
-
-        fetch(url + '?' + params.toString(), { method: 'GET' })
-          .then(resp => resp.json())
-          .then(json => {
-            if(json.status === 'ok'){
-              alert('✅ Enviado com sucesso!');
-              form.reset();
-            } else {
-              alert('⚠️ Erro: ' + (json.mensagem || 'não processado'));
-            }
+    // botão separado
+    document.getElementById('btnEnviarPlanilha').addEventListener('click', function() {
+      if(confirm("Deseja enviar a planilha por e-mail agora?")) {
+        fetch(url + '?acao=enviarPlanilha')
+          .then(r => r.text())
+          .then(t => {
+            if(t.includes('OK')) alert('📧 Planilha enviada por e-mail com sucesso!');
+            else alert('⚠️ Erro: ' + t);
           })
-          .catch(err => {
-            console.error(err);
-            alert('❌ Erro ao enviar, veja console.');
-          });
-      });
+          .catch(err => alert('❌ Falha: ' + err));
+      }
     });
   </script>
 </body>
